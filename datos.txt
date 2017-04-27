@@ -1,0 +1,4 @@
+Inicio de Sesion Exitoso, Usuario: guty-15@hotmail.com, Ip: ('127.0.0.1', 49223), Fecha: 04/26/17, Hora: 18:51:25
+Inicio de Sesion Exitoso, Usuario: guty-15@hotmail.com, Ip: ('127.0.0.1', 49228), Fecha: 04/26/17, Hora: 18:52:43
+
+
