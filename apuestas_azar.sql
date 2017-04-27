@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-04-2017 a las 06:46:49
+-- Tiempo de generación: 27-04-2017 a las 06:50:56
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -33,7 +33,7 @@ CREATE TABLE `aciertos` (
   `numero_chance` int(30) NOT NULL,
   `valor_chance` int(30) NOT NULL,
   `fecha` varchar(30) NOT NULL,
-  `pago_ganador` int(30) NOT NULL
+  `pago_ganador` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -41,8 +41,8 @@ CREATE TABLE `aciertos` (
 --
 
 INSERT INTO `aciertos` (`id`, `nombre_ganador`, `loteria`, `numero_chance`, `valor_chance`, `fecha`, `pago_ganador`) VALUES
-(1, 'Maria', 'Valle', 2345, 4000, '19/04/17', 20000000),
-(2, 'marcela', 'Loteria de Cundinamarca', 3247, 2500, '24/04/2017', 12500000);
+(1, 'Maria', 'Valle', 2345, 4000, '19/04/17', '20000000'),
+(2, 'marcela', 'Loteria de Cundinamarca', 3247, 2500, '24/04/2017', '12500000');
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,8 @@ INSERT INTO `chance` (`id`, `nombre_comprador`, `numero_chance`, `loteria`, `val
 (7, 'juan carlos', 3578, 'Sinuano Noche', 5000, '04/23/17', '19:17:30'),
 (8, 'marcela', 2345, 'Chontico Noche', 2500, '24/04/2017', '16:26:55'),
 (9, 'marcela', 2347, 'Loteria del Tolima', 2500, '24/04/2017', '16:29:19'),
-(10, 'marcela', 2347, 'Loteria de Cundinamarca', 2500, '24/04/2017', '16:30:14');
+(10, 'marcela', 2347, 'Loteria de Cundinamarca', 2500, '24/04/2017', '16:30:14'),
+(11, 'marcela', 1245, '3', 2000, '26/04/2017', '16:26:04');
 
 -- --------------------------------------------------------
 
@@ -148,7 +149,9 @@ INSERT INTO `loteria` (`id`, `nombre`, `dia`, `numero`) VALUES
 (52, 'Sinuano Noche', 'Sabado', 7733),
 (53, 'Super Astro Luna', 'Sabado', 7477),
 (54, 'Loteria del Cauca', 'Sabado', 3468),
-(55, 'Loteria de Boyaca', 'Sabado', 8545);
+(55, 'Loteria de Boyaca', 'Sabado', 8545),
+(56, 'python', 'domingo', 1234),
+(57, '4', '4', 1985);
 
 -- --------------------------------------------------------
 
@@ -179,7 +182,7 @@ INSERT INTO `productos` (`id`, `nombre_producto`, `puntos`) VALUES
 CREATE TABLE `puntos` (
   `id` int(30) NOT NULL,
   `nombre_persona` varchar(30) NOT NULL,
-  `puntos` int(30) NOT NULL
+  `puntos` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -187,16 +190,17 @@ CREATE TABLE `puntos` (
 --
 
 INSERT INTO `puntos` (`id`, `nombre_persona`, `puntos`) VALUES
-(1, 'marcela', 20),
-(2, 'david', 1000),
-(3, 'david', 20),
-(4, 'david', 20),
-(5, 'julian', 30),
-(6, 'maria', 40),
-(7, 'juan carlos', 50),
-(8, 'marcela', 25),
-(9, 'marcela', 25),
-(10, 'marcela', 25);
+(1, 'marcela', '20'),
+(2, 'david', '1000'),
+(3, 'david', '20'),
+(4, 'david', '20'),
+(5, 'julian', '30'),
+(6, 'maria', '40'),
+(7, 'juan carlos', '50'),
+(8, 'marcela', '25'),
+(9, 'marcela', '25'),
+(10, 'marcela', '25'),
+(11, 'marcela', '20');
 
 -- --------------------------------------------------------
 
@@ -218,6 +222,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`cedula`, `nombre_usuario`, `tipo_usuario`, `email`, `contrasena`, `fecha_registro`) VALUES
+('1077458119', 'david', 'usuario', 'davo_43@hotmail.com', '1234', '26/04/17'),
 ('14569700', 'Julian Ruiz', 'usuario', 'juliancho@gmail.com', 'virgo0916', '24/04/2017'),
 ('14572150', 'Fernando Rebellon', 'Administrador', 'guty-15@hotmail.com', 'virgo0915', '23/04/2017'),
 ('31468365', 'Luz Maria', 'usuario', 'luzma@gmail.com', 'mma1112781120', '24/04/2017');
@@ -275,12 +280,12 @@ ALTER TABLE `aciertos`
 -- AUTO_INCREMENT de la tabla `chance`
 --
 ALTER TABLE `chance`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `loteria`
 --
 ALTER TABLE `loteria`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
@@ -290,7 +295,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `puntos`
 --
 ALTER TABLE `puntos`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
